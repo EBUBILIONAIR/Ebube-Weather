@@ -36,14 +36,14 @@ export default function TimeOfDay({ hourly, units }) {
       {rows.length === 0
         ? <p className="text-gray-300 text-sm text-center py-4">No data</p>
         : rows.map((row, i) => (
-          <div key={i} className="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0 px-2 hover:bg-gray-50 rounded-lg transition-colors">
-            <span className="text-base w-5 shrink-0">{row.icon}</span>
-            <span className="text-sm font-medium text-gray-600 w-20 shrink-0">{row.label}</span>
-            <img src={row.iconUrl} alt="" className="w-8 h-8 shrink-0"/>
-            <span className="text-sm text-gray-500 flex-1 capitalize hidden sm:block truncate">{row.desc}</span>
-            <span className="text-xs text-blue-500 w-10 text-right shrink-0">{Math.round(row.maxPop * 100)}%</span>
-            <span className="text-sm font-bold text-gray-800 w-14 text-right shrink-0">{formatTemp(row.avgTemp, units)}</span>
-          </div>
+        <div className="flex items-center gap-1 sm:gap-3 py-2.5 border-b border-gray-50 last:border-0 px-2 hover:bg-gray-50 rounded-lg transition-colors">
+  <span className="text-base w-5 shrink-0">{row.icon}</span>
+  <span className="text-xs sm:text-sm font-medium text-gray-600 w-16 sm:w-20 shrink-0">{row.label}</span>
+  <img src={row.iconUrl} alt="" className="w-7 h-7 sm:w-8 sm:h-8 shrink-0"/>
+  <span className="text-xs text-gray-500 flex-1 capitalize hidden sm:block truncate">{row.desc}</span>
+  <span className="text-xs text-blue-500 w-8 sm:w-10 text-right shrink-0">{Math.round(row.maxPop * 100)}%</span>
+  <span className="text-xs sm:text-sm font-bold text-gray-800 w-10 sm:w-14 text-right shrink-0">{formatTemp(row.avgTemp, units)}</span>
+</div>
         ))
       }
     </div>
