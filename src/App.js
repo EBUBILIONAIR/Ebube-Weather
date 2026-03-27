@@ -9,6 +9,7 @@ import HourlyPage from './pages/HourlyPage';
 import DailyPage from './pages/DailyPage';
 import TenDayPage from './pages/TenDayPage';
 import { PrivacyPage, TermsPage } from './pages/StaticPages';
+import ScrollToTop from './components/ScrollToTop';
 
 function AppInner() {
   const { toasts, show: showToast } = useToast();
@@ -64,5 +65,10 @@ function AppInner() {
 }
 
 export default function App() {
-  return <BrowserRouter><AppInner/></BrowserRouter>;
+  return (
+  <BrowserRouter>
+   <ScrollToTop />
+  <AppInner/>
+  </BrowserRouter>
+  );
 }
