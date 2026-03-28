@@ -11,7 +11,7 @@ function Section({ title, children }) {
 
 export function PrivacyPage() {
   return (
-    <main className="max-w-3xl mx-auto px-2 py-4 page-fade-in">
+    <main id="main-content" className="max-w-3xl mx-auto px-2 py-4 page-fade-in">
       <h1 className="text-3xl font-bold text-gray-800 mb-2">Privacy Policy</h1>
       <p className="text-sm text-gray-500 mb-8">Last updated: March 2026</p>
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 space-y-6 text-gray-700 leading-relaxed">
@@ -53,7 +53,7 @@ export function PrivacyPage() {
 
 export function TermsPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-10 page-fade-in">
+    <main id="main-content" className="max-w-3xl mx-auto px-4 py-10 page-fade-in">
       <h1 className="text-3xl font-bold text-gray-800 mb-2">Terms of Use</h1>
       <p className="text-sm text-gray-500 mb-8">Effective: January 1, 2026</p>
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 space-y-6 text-gray-700 leading-relaxed">

@@ -29,7 +29,7 @@ export default function DailyPage({ units }) {
   }, []);
 
   return (
-    <main className="max-w-4xl mx-auto px-2 py-4 page-fade-in">
+    <main id="main-content" className="max-w-4xl mx-auto px-2 py-4 page-fade-in">
       <div className="mb-6">
         <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Daily Weather Forecast</h1>
         <p className="text-sm text-gray-400 mt-1">{cityLabel}</p>

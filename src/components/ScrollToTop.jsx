@@ -5,7 +5,14 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      const el = document.getElementById('main-content');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
   }, [pathname]);
 
   return null;

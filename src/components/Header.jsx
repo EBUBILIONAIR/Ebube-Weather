@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import * as API from '../utils/api';
 import WeatherIcons from '../utils/weatherIcons';
 import { formatTemp } from '../utils/format';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header({ units, onSelectCity, onToggleUnits, recentCities, weatherCache }) {
   const [query, setQuery]       = useState('');
@@ -12,6 +13,7 @@ export default function Header({ units, onSelectCity, onToggleUnits, recentCitie
   const [clock, setClock]       = useState('');
   const timerRef = useRef(null);
   const dropRef  = useRef(null);
+  const navigate = useNavigate();
 
   // Live clock
   useEffect(() => {
@@ -39,12 +41,27 @@ export default function Header({ units, onSelectCity, onToggleUnits, recentCitie
     }, 300);
   }, []);
 
-  const pick = (city) => {
-    setQuery(city.name);
-    setShowDrop(false);
-    setSugg([]);
-    onSelectCity(city);
-  };
+  // const pick = (city) => {
+  //   setQuery(city.name);
+  //   setShowDrop(false);
+  //   setSugg([]);
+  //   onSelectCity(city);
+  //   navigate('/');
+  // };
+
+//  
+
+const pick = (city) => {
+  setQuery(city.name);
+  setShowDrop(false);
+  setSugg([]);
+  onSelectCity(city);
+  navigate('/');
+  setTimeout(() => {
+    const el = document.getElementById('main-content');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
+};
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && suggestions.length > 0) pick(suggestions[0]);
@@ -158,7 +175,14 @@ export default function Header({ units, onSelectCity, onToggleUnits, recentCitie
               const icon  = d ? WeatherIcons.getIconUrl(d.current.weather[0].icon) : null;
               const grad  = d ? WeatherIcons.getWeatherGradient(d.current.weather[0].icon) : 'linear-gradient(135deg,#667eea,#764ba2)';
               return (
-                <div key={i} onClick={() => onSelectCity(city)}
+                <div key={i} onClick={() => {
+  onSelectCity(city);
+  navigate('/');
+  setTimeout(() => {
+    const el = document.getElementById('main-content');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
+}}
                   className="recent-card relative overflow-hidden rounded-xl cursor-pointer group"
                   style={{background:grad}}>
                   <div className="absolute inset-0 backdrop-blur-sm bg-black/30 group-hover:bg-black/20 transition-all pointer-events-none"/>

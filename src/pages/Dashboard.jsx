@@ -11,11 +11,11 @@ import WeatherSkeleton from '../components/WeatherSkeleton';
 
 export default function Dashboard({ weatherData, currentCity, newsData, loading, error, units, onRetry }) {
   return (
-    <main className="max-w-screen-xl xl:max-w-full mx-auto px-4 py-6">
+    <main id="main-content" className="max-w-screen-xl xl:max-w-full mx-auto px-4 py-6">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* LEFT: Weather panels */}
-        <div className="flex-1 min-w-0">
+       <div className="flex-1 min-w-0" id="weather-content">
           {loading && <WeatherSkeleton/>}
           {error && !loading && (
             <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
